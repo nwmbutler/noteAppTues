@@ -1,7 +1,7 @@
 (function(exports) {
   function NoteListApp() {
     this.notesArray = [];
-    this.noteApp = null
+    this.noteApp = null;
   };
 
   NoteListApp.prototype.addNote = function(note) {
