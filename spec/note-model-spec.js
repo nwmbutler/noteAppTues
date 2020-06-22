@@ -13,14 +13,19 @@ function testNoteAppStoresNote() {
 
 function testNoteListAppStoresNote() {
   var noteListApp = new NoteListApp();
-  const expected_result = ["note 1", "note 2"];
   noteListApp.addNote("note 1")
   noteListApp.addNote("note 2")
-  console.log(noteListApp.notes())
-  assert.isTrue(noteListApp.notes().length === 2);
   assert.isTrue(noteListApp.notes()[0] === "note 1");
   assert.isTrue(noteListApp.notes()[1] === "note 2");
 };
 
+function testNoteListAppStoresNoteListModel() {
+  var noteListApp = new NoteListApp();
+  noteListApp.createSingleNote("Favourite drink: seltzer")
+
+  assert.isTrue(noteListApp.noteApp.note() === "Favourite drink: seltzer")  
+}
+
 testNoteAppStoresNote();
 testNoteListAppStoresNote();
+testNoteListAppStoresNoteListModel();

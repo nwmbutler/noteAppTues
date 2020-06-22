@@ -1,6 +1,7 @@
 (function(exports) {
   function NoteListApp() {
     this.notesArray = [];
+    this.noteApp = null
   };
 
   NoteListApp.prototype.addNote = function(note) {
@@ -11,12 +12,12 @@
     return this.notesArray;
   }
 
-   
+  NoteListApp.prototype.createSingleNote = function(note) {
+    this.noteApp = new NoteApp(note);
+  }
 
   exports.NoteListApp = NoteListApp;
 })(this);
-
-
 
 // class NoteListApp {
 //    constructor() {
