@@ -23,9 +23,17 @@ function testNoteListAppStoresNoteListModel() {
   var noteListApp = new NoteListApp();
   noteListApp.createSingleNote("Favourite drink: seltzer")
 
-  assert.isTrue(noteListApp.noteApp.note() === "Favourite drink: seltzer")  
+  assert.isTrue(noteListApp.noteApp.note() === "Favourite drink: seltzer")
+}
+
+function testModelViewOutputsHTML() {
+  var noteListApp = new NoteListApp();
+  var modelView = new ModelView(noteListApp);
+  noteListApp.createSingleNote("Favourite drink: seltzer")
+  assert.isTrue(modelView.displayView() === '<ul><li><div>Favourite drink: seltzer</div></li></ul>')
 }
 
 testNoteAppStoresNote();
 testNoteListAppStoresNote();
 testNoteListAppStoresNoteListModel();
+testModelViewOutputsHTML();
